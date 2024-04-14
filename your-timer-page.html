@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站创立时间计时器</title>
+    <script>
+        window.onload = function() {
+            // 设置网站创立日期（可以根据实际情况修改）
+            var startDate = new Date("2024-04-04");
+            
+            // 更新计时器的函数
+            function updateTimer() {
+                var now = new Date();
+                var diff = now - startDate;
+
+                // 计算时间差
+                var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                // 更新页面上的计时器显示
+                document.getElementById("timer").innerHTML = days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒";
+            }
+
+            // 每秒更新一次计时器
+            setInterval(updateTimer, 1000);
+        };
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>网站创立时间计时器</h1>
+</header>
+
+<main>
+    <section>
+        <h2>网站已经运行了</h2>
+        <p id="timer"></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 你的网站名称</p>
+</footer>
+
+</body>
+</html>
